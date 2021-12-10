@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		849BC3B4276384C20094A929 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BC3B3276384C20094A929 /* AppDelegate.swift */; };
 		849BC3B6276384C20094A929 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BC3B5276384C20094A929 /* SceneDelegate.swift */; };
-		849BC3B8276384C20094A929 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BC3B7276384C20094A929 /* ViewController.swift */; };
+		849BC3B8276384C20094A929 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BC3B7276384C20094A929 /* MainViewController.swift */; };
 		849BC3BD276384C40094A929 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849BC3BC276384C40094A929 /* Assets.xcassets */; };
 		849BC3C0276384C40094A929 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849BC3BE276384C40094A929 /* LaunchScreen.storyboard */; };
 		849BC3E5276398D60094A929 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BC3E4276398D60094A929 /* BaseViewController.swift */; };
@@ -17,13 +17,16 @@
 		849BC3EB2763995F0094A929 /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BC3EA2763995F0094A929 /* Extension + UIView.swift */; };
 		849BC3ED276399700094A929 /* Extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BC3EC276399700094A929 /* Extension + UIViewController.swift */; };
 		849BC3EF276399EB0094A929 /* Extension + UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BC3EE276399EB0094A929 /* Extension + UIColor.swift */; };
+		849BC3F32763A4CB0094A929 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BC3F22763A4CB0094A929 /* DataFetcher.swift */; };
+		849BC3FA2763A6C20094A929 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BC3F92763A6C20094A929 /* Constants.swift */; };
+		849BC3FD2763A99C0094A929 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 849BC3FC2763A99C0094A929 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		849BC3B0276384C20094A929 /* LaunchAppMVP+R+UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LaunchAppMVP+R+UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		849BC3B3276384C20094A929 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		849BC3B5276384C20094A929 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		849BC3B7276384C20094A929 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		849BC3B7276384C20094A929 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		849BC3BC276384C40094A929 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		849BC3BF276384C40094A929 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		849BC3C1276384C40094A929 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -32,6 +35,8 @@
 		849BC3EA2763995F0094A929 /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
 		849BC3EC276399700094A929 /* Extension + UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIViewController.swift"; sourceTree = "<group>"; };
 		849BC3EE276399EB0094A929 /* Extension + UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIColor.swift"; sourceTree = "<group>"; };
+		849BC3F22763A4CB0094A929 /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
+		849BC3F92763A6C20094A929 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				849BC3FD2763A99C0094A929 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,7 +70,8 @@
 		849BC3B2276384C20094A929 /* LaunchAppMVP+R+UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				849BC3B7276384C20094A929 /* ViewController.swift */,
+				849BC3F12763A4BB0094A929 /* Services */,
+				849BC3B7276384C20094A929 /* MainViewController.swift */,
 				849BC3F027639A150094A929 /* Utils */,
 				849BC3E3276398CB0094A929 /* Core */,
 			);
@@ -96,11 +103,20 @@
 		849BC3F027639A150094A929 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				849BC3F92763A6C20094A929 /* Constants.swift */,
 				849BC3EA2763995F0094A929 /* Extension + UIView.swift */,
 				849BC3EC276399700094A929 /* Extension + UIViewController.swift */,
 				849BC3EE276399EB0094A929 /* Extension + UIColor.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		849BC3F12763A4BB0094A929 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				849BC3F22763A4CB0094A929 /* DataFetcher.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,6 +135,9 @@
 			dependencies = (
 			);
 			name = "LaunchAppMVP+R+UIKit";
+			packageProductDependencies = (
+				849BC3FC2763A99C0094A929 /* Alamofire */,
+			);
 			productName = "LaunchAppMVP+R+UIKit";
 			productReference = 849BC3B0276384C20094A929 /* LaunchAppMVP+R+UIKit.app */;
 			productType = "com.apple.product-type.application";
@@ -147,6 +166,9 @@
 				Base,
 			);
 			mainGroup = 849BC3A7276384C20094A929;
+			packageReferences = (
+				849BC3FB2763A99C0094A929 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 849BC3B1276384C20094A929 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -176,11 +198,13 @@
 				849BC3E7276398E40094A929 /* BaseLoaderViewController.swift in Sources */,
 				849BC3EF276399EB0094A929 /* Extension + UIColor.swift in Sources */,
 				849BC3ED276399700094A929 /* Extension + UIViewController.swift in Sources */,
-				849BC3B8276384C20094A929 /* ViewController.swift in Sources */,
+				849BC3B8276384C20094A929 /* MainViewController.swift in Sources */,
 				849BC3EB2763995F0094A929 /* Extension + UIView.swift in Sources */,
+				849BC3FA2763A6C20094A929 /* Constants.swift in Sources */,
 				849BC3E5276398D60094A929 /* BaseViewController.swift in Sources */,
 				849BC3B4276384C20094A929 /* AppDelegate.swift in Sources */,
 				849BC3B6276384C20094A929 /* SceneDelegate.swift in Sources */,
+				849BC3F32763A4CB0094A929 /* DataFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +414,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		849BC3FB2763A99C0094A929 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		849BC3FC2763A99C0094A929 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 849BC3FB2763A99C0094A929 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 849BC3A8276384C20094A929 /* Project object */;
 }
