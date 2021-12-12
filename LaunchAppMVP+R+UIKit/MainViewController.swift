@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Alamofire
 
 class MainViewController: UIViewController {
     
@@ -15,27 +14,33 @@ class MainViewController: UIViewController {
         // Do any additional setup after loading the view.
         view.backgroundColor = .red
         
-        loadData()
+//        loadCapsuleData()
+        loadLaunchData()
     }
     
-    func loadData() {
-        AF.request(APIRouter.login(username:"michael",password:"123")
-                    .responseDecodable { (response: DataResponse<LoginResponse, AFError>) in
-            switch response.result {
-            case .success(let response): break
-                //You can handle 'response' when request success (response as LoginResponse)
+    func loadCapsuleData() {
+        let repository = SpaceXDataRepository()
+        repository.getCapsulesList { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let capsulesResponse):
+                debugPrint("capsules fetched")
             case .failure(let error):
-                break
+                print(error)
             }
-        })
+        }
     }
-}
-
-struct LoginResponse : Codable {
-   
-    let token : String?
     
-    enum CodingKeys: String, CodingKey {
-        case token = "token"
+    func loadLaunchData() {
+        let repository = SpaceXDataRepository()
+        repository.getLaunchesList { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let launchesResponse):
+                debugPrint("launches fetched")
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }

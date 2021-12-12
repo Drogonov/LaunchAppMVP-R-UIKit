@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8477B5FB276630B000B9100B /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 8477B5FA276630B000B9100B /* Moya */; };
+		8477B5FD276632E600B9100B /* SpaceXDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477B5FC276632E600B9100B /* SpaceXDataRepository.swift */; };
+		8477B5FF2766373100B9100B /* CapsuleMo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477B5FE2766373100B9100B /* CapsuleMo.swift */; };
+		8477B6012766373C00B9100B /* LaunchMo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477B6002766373C00B9100B /* LaunchMo.swift */; };
+		8477B6032766388400B9100B /* NetworkHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477B6022766388400B9100B /* NetworkHelpers.swift */; };
 		849BC3B4276384C20094A929 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BC3B3276384C20094A929 /* AppDelegate.swift */; };
 		849BC3B6276384C20094A929 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BC3B5276384C20094A929 /* SceneDelegate.swift */; };
 		849BC3B8276384C20094A929 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BC3B7276384C20094A929 /* MainViewController.swift */; };
@@ -17,12 +22,15 @@
 		849BC3EB2763995F0094A929 /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BC3EA2763995F0094A929 /* Extension + UIView.swift */; };
 		849BC3ED276399700094A929 /* Extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BC3EC276399700094A929 /* Extension + UIViewController.swift */; };
 		849BC3EF276399EB0094A929 /* Extension + UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BC3EE276399EB0094A929 /* Extension + UIColor.swift */; };
-		849BC3F32763A4CB0094A929 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BC3F22763A4CB0094A929 /* DataFetcher.swift */; };
+		849BC3F32763A4CB0094A929 /* SpaceXDataAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BC3F22763A4CB0094A929 /* SpaceXDataAPI.swift */; };
 		849BC3FA2763A6C20094A929 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BC3F92763A6C20094A929 /* Constants.swift */; };
-		849BC3FD2763A99C0094A929 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 849BC3FC2763A99C0094A929 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8477B5FC276632E600B9100B /* SpaceXDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXDataRepository.swift; sourceTree = "<group>"; };
+		8477B5FE2766373100B9100B /* CapsuleMo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleMo.swift; sourceTree = "<group>"; };
+		8477B6002766373C00B9100B /* LaunchMo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchMo.swift; sourceTree = "<group>"; };
+		8477B6022766388400B9100B /* NetworkHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelpers.swift; sourceTree = "<group>"; };
 		849BC3B0276384C20094A929 /* LaunchAppMVP+R+UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LaunchAppMVP+R+UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		849BC3B3276384C20094A929 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		849BC3B5276384C20094A929 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,7 +43,7 @@
 		849BC3EA2763995F0094A929 /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
 		849BC3EC276399700094A929 /* Extension + UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIViewController.swift"; sourceTree = "<group>"; };
 		849BC3EE276399EB0094A929 /* Extension + UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIColor.swift"; sourceTree = "<group>"; };
-		849BC3F22763A4CB0094A929 /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
+		849BC3F22763A4CB0094A929 /* SpaceXDataAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXDataAPI.swift; sourceTree = "<group>"; };
 		849BC3F92763A6C20094A929 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -44,7 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				849BC3FD2763A99C0094A929 /* Alamofire in Frameworks */,
+				8477B5FB276630B000B9100B /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,7 +78,7 @@
 		849BC3B2276384C20094A929 /* LaunchAppMVP+R+UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				849BC3F12763A4BB0094A929 /* Services */,
+				849BC3F12763A4BB0094A929 /* Repository */,
 				849BC3B7276384C20094A929 /* MainViewController.swift */,
 				849BC3F027639A150094A929 /* Utils */,
 				849BC3E3276398CB0094A929 /* Core */,
@@ -111,12 +119,16 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		849BC3F12763A4BB0094A929 /* Services */ = {
+		849BC3F12763A4BB0094A929 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				849BC3F22763A4CB0094A929 /* DataFetcher.swift */,
+				849BC3F22763A4CB0094A929 /* SpaceXDataAPI.swift */,
+				8477B5FC276632E600B9100B /* SpaceXDataRepository.swift */,
+				8477B5FE2766373100B9100B /* CapsuleMo.swift */,
+				8477B6002766373C00B9100B /* LaunchMo.swift */,
+				8477B6022766388400B9100B /* NetworkHelpers.swift */,
 			);
-			path = Services;
+			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,7 +148,7 @@
 			);
 			name = "LaunchAppMVP+R+UIKit";
 			packageProductDependencies = (
-				849BC3FC2763A99C0094A929 /* Alamofire */,
+				8477B5FA276630B000B9100B /* Moya */,
 			);
 			productName = "LaunchAppMVP+R+UIKit";
 			productReference = 849BC3B0276384C20094A929 /* LaunchAppMVP+R+UIKit.app */;
@@ -167,7 +179,7 @@
 			);
 			mainGroup = 849BC3A7276384C20094A929;
 			packageReferences = (
-				849BC3FB2763A99C0094A929 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				8477B5F9276630B000B9100B /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = 849BC3B1276384C20094A929 /* Products */;
 			projectDirPath = "";
@@ -200,11 +212,15 @@
 				849BC3ED276399700094A929 /* Extension + UIViewController.swift in Sources */,
 				849BC3B8276384C20094A929 /* MainViewController.swift in Sources */,
 				849BC3EB2763995F0094A929 /* Extension + UIView.swift in Sources */,
+				8477B5FD276632E600B9100B /* SpaceXDataRepository.swift in Sources */,
 				849BC3FA2763A6C20094A929 /* Constants.swift in Sources */,
+				8477B6012766373C00B9100B /* LaunchMo.swift in Sources */,
+				8477B6032766388400B9100B /* NetworkHelpers.swift in Sources */,
+				8477B5FF2766373100B9100B /* CapsuleMo.swift in Sources */,
 				849BC3E5276398D60094A929 /* BaseViewController.swift in Sources */,
 				849BC3B4276384C20094A929 /* AppDelegate.swift in Sources */,
 				849BC3B6276384C20094A929 /* SceneDelegate.swift in Sources */,
-				849BC3F32763A4CB0094A929 /* DataFetcher.swift in Sources */,
+				849BC3F32763A4CB0094A929 /* SpaceXDataAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,21 +432,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		849BC3FB2763A99C0094A929 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		8477B5F9276630B000B9100B /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			repositoryURL = "https://github.com/Moya/Moya";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
+				minimumVersion = 13.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		849BC3FC2763A99C0094A929 /* Alamofire */ = {
+		8477B5FA276630B000B9100B /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 849BC3FB2763A99C0094A929 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
+			package = 8477B5F9276630B000B9100B /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
