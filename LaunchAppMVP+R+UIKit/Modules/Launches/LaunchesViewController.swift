@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol LaunchesViewControllerProtocol: AnyObject {
+protocol LaunchesViewControllerProtocol: BaseViewLoader {
     func setView(with viewModel: LaunchesViewModel)
     
 }

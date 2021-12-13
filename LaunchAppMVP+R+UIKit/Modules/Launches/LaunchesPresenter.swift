@@ -11,8 +11,7 @@ import Foundation
 protocol LaunchesPresenterProtocol: AnyObject {
     init(
         view: LaunchesViewControllerProtocol,
-        router: RouterProtocol,
-        model: LaunchesModel
+        router: RouterProtocol
     )
     func setView()
     func buttonTapped()
@@ -26,18 +25,16 @@ class LaunchesPresenter {
     
     weak var view: LaunchesViewControllerProtocol?
     var router: RouterProtocol
-    var model: LaunchesModel
+    var model: LaunchesModel = LaunchesModel()
     
     // MARK: - Construction
     
     required init(
         view: LaunchesViewControllerProtocol,
-        router: RouterProtocol,
-        model: LaunchesModel
+        router: RouterProtocol
     ) {
         self.view = view
         self.router = router
-        self.model = model
     }
 }
 

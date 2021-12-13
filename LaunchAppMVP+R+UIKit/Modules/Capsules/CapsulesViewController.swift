@@ -8,9 +8,8 @@
 
 import UIKit
 
-protocol CapsulesViewControllerProtocol: AnyObject {
+protocol CapsulesViewControllerProtocol: BaseViewLoader {
     func setView(with viewModel: CapsulesViewModel)
-    
 }
 
 class CapsulesViewController: BaseViewController {
@@ -18,12 +17,21 @@ class CapsulesViewController: BaseViewController {
     // MARK: - Properties
     
     var presenter: CapsulesPresenterProtocol?
+    private var capsulesCollectionView = CapsulesCollectionView()
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        presenter?.loadCapsules()
         configureUI()
+    }
+    
+    // MARK: - Selectors
+    
+    @objc func settingsTapped() {
+        debugPrint("settingsTapped")
     }
 }
 
@@ -32,24 +40,43 @@ class CapsulesViewController: BaseViewController {
 extension CapsulesViewController {
     private func configureUI() {
         presenter?.setView()
+        configureCollectionView()
+    }
+    
+    private func configureNavigationBar(navigationTitle: String) {
+        setNavigationBarTitle(with: navigationTitle)
+        let image = UIImage(systemName: "gear")!
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: image,
+            style: .plain,
+            target: self,
+            action: #selector(settingsTapped)
+        )
+    }
+    
+    private func configureCollectionView() {
+        capsulesCollectionView.delegate = self
+        addMainUIKitViewToViewController(capsulesCollectionView)
     }
     
     private func configureView(with viewModel: CapsulesViewModel) {
-        let view = CapsulesView(
-            buttonText: viewModel.buttonText,
-            buttonTapped: {
-                self.presenter?.buttonTapped()
-            }
-        )
-        addMainViewToViewController(view)
+        capsulesCollectionView.set(capsules: viewModel.capsules)
     }
 }
 
-// MARK: - BrewViewProtocol
+// MARK: - CapsulesViewControllerProtocol
 
 extension CapsulesViewController: CapsulesViewControllerProtocol {
     func setView(with viewModel: CapsulesViewModel) {
-        setNavigationBarTitle(with: viewModel.navigationTitle)
+        configureNavigationBar(navigationTitle: viewModel.navigationTitle)
         configureView(with: viewModel)
+    }
+}
+
+// MARK: - CapsulesCollectionViewDelegate
+
+extension CapsulesViewController: CapsulesCollectionViewDelegate {
+    func capsuleTapped(with capsuleID: UUID?) {
+        presenter?.routeToDetails(with: capsuleID)
     }
 }

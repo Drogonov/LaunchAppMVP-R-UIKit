@@ -9,16 +9,15 @@
 import UIKit
 
 protocol LaunchesBuilderProtocol {
-    func createLaunchesModule(router: RouterProtocol, model: LaunchesModel) -> UIViewController
+    func createLaunchesModule(router: RouterProtocol) -> UIViewController
 }
 
 class LaunchesBuilder: LaunchesBuilderProtocol {
-    func createLaunchesModule(router: RouterProtocol, model: LaunchesModel) -> UIViewController {
+    func createLaunchesModule(router: RouterProtocol) -> UIViewController {
         let view = LaunchesViewController()
         let presenter = LaunchesPresenter(
             view: view,
-            router: router,
-            model: model
+            router: router
         )
         view.presenter = presenter
         return view

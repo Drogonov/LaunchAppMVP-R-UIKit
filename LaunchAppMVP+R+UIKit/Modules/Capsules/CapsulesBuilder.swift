@@ -9,16 +9,15 @@
 import UIKit
 
 protocol CapsulesBuilderProtocol {
-    func createCapsulesModule(router: RouterProtocol, model: CapsulesModel) -> UIViewController
+    func createCapsulesModule(router: RouterProtocol) -> UIViewController
 }
 
 class CapsulesBuilder: CapsulesBuilderProtocol {
-    func createCapsulesModule(router: RouterProtocol, model: CapsulesModel) -> UIViewController {
+    func createCapsulesModule(router: RouterProtocol) -> UIViewController {
         let view = CapsulesViewController()
         let presenter = CapsulesPresenter(
             view: view,
-            router: router,
-            model: model
+            router: router
         )
         view.presenter = presenter
         return view

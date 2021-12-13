@@ -56,6 +56,16 @@ class BaseViewController: UIViewController {
         viewCtrl.didMove(toParent: self)
     }
     
+    func addMainUIKitViewToViewController(_ newView: UIView) {
+        view.addSubview(newView)
+        newView.anchor(
+            top: view.safeAreaLayoutGuide.topAnchor,
+            leading: view.safeAreaLayoutGuide.leftAnchor,
+            bottom: view.safeAreaLayoutGuide.bottomAnchor,
+            trailing: view.safeAreaLayoutGuide.rightAnchor
+        )
+    }
+    
     // MARK: - Private methods
     
     private func configureNavigationBar() {

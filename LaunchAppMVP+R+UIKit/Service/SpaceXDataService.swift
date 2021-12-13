@@ -1,5 +1,5 @@
 //
-//  SpaceXDataRepository.swift
+//  SpaceXDataService.swift
 //  LaunchAppMVP+R+UIKit
 //
 //  Created by Anton Vlezko on 12.12.2021.
@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 // Протокол репозитория для взаимодействия с акциями
-protocol SpaceXDataRepositoryProtocol {
+protocol SpaceXDataServiceProtocol {
     /// получение списка блока выгодно
     func getLaunchesList(
         completion: @escaping ((Result<[LaunchMo]?, HTMAPIError>) -> Void)
@@ -20,7 +20,7 @@ protocol SpaceXDataRepositoryProtocol {
     )
 }
 
-final class SpaceXDataRepository: SpaceXDataRepositoryProtocol {
+final class SpaceXDataService: SpaceXDataServiceProtocol, Injectable {
     
     private let provider = MoyaProvider<SpaceXDataAPI>()
     

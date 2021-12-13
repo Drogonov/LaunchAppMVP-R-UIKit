@@ -7,8 +7,16 @@
 //
 
 import Foundation
+import UIKit
+
+struct CapsuleCellViewModel {
+    let id: UUID = UUID()
+    var statusButtonColor: UIColor
+    var capsuleName: String
+    var capsuleEmoji: String
+}
 
 struct CapsulesViewModel {
     let navigationTitle: String
-    let buttonText: String
+    var capsules: [CapsuleCellViewModel]
 }
