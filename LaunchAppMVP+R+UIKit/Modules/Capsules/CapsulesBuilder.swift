@@ -10,6 +10,7 @@ import UIKit
 
 protocol CapsulesBuilderProtocol {
     func createCapsulesModule(router: RouterProtocol) -> UIViewController
+    func createCapsuleDetailsModule(router: RouterProtocol, model: CapsuleDetailsModel) -> UIViewController
 }
 
 class CapsulesBuilder: CapsulesBuilderProtocol {
@@ -18,6 +19,17 @@ class CapsulesBuilder: CapsulesBuilderProtocol {
         let presenter = CapsulesPresenter(
             view: view,
             router: router
+        )
+        view.presenter = presenter
+        return view
+    }
+    
+    func createCapsuleDetailsModule(router: RouterProtocol, model: CapsuleDetailsModel) -> UIViewController {
+        let view = CapsuleDetailsViewController()
+        let presenter = CapsuleDetailsPresenter(
+            view: view,
+            router: router,
+            model: model
         )
         view.presenter = presenter
         return view

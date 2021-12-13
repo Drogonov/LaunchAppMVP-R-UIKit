@@ -16,8 +16,5 @@ extension UIColor {
     static let actionButtonTextColor = UIColor.systemBackground
     static let actionButtonBackgroundColor = UIColor.label
     
-    static let hologramColor1 = UIColor(patternImage: UIImage(named: "hologram_1")!)
-    static let hologramColor2 = UIColor(patternImage: UIImage(named: "hologram_2")!)
-    
     static let accentColor = UIColor.red
 }

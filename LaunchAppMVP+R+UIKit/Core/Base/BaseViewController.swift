@@ -13,12 +13,7 @@ protocol BaseViewLoader: AnyObject {
     func hideLoader()
 }
 
-
 class BaseViewController: UIViewController {
-    
-    // MARK: - Properties
-    
-    private lazy var spinner = BaseLoaderViewController()
 
     // MARK: - Lifecycle
     
@@ -56,7 +51,7 @@ class BaseViewController: UIViewController {
         viewCtrl.didMove(toParent: self)
     }
     
-    func addMainUIKitViewToViewController(_ newView: UIView) {
+    func addUIViewToViewController(_ newView: UIView) {
         view.addSubview(newView)
         newView.anchor(
             top: view.safeAreaLayoutGuide.topAnchor,
@@ -84,26 +79,5 @@ class BaseViewController: UIViewController {
         self.view.addGestureRecognizer(swipeLeft)
         self.view.addGestureRecognizer(swipeRight)
 
-    }
-}
-
-extension BaseViewController: BaseViewLoader {
-    func showLoader() {
-        addChild(spinner)
-        spinner.view.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(spinner.view)
-        spinner.spinner.startAnimation()
-        spinner.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        spinner.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        spinner.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        spinner.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        spinner.didMove(toParent: self)
-    }
-    
-    func hideLoader() {
-        spinner.spinner.stopAnimation()
-        spinner.willMove(toParent: nil)
-        spinner.view.removeFromSuperview()
-        spinner.removeFromParent()
     }
 }

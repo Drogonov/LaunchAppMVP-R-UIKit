@@ -17,7 +17,11 @@ protocol RouterProtocol {
     
     func initialMainTabBar()
     func showDetailLaunch(with vc: UIViewController)
-    func showDetailCapsules(with vc: UIViewController)
+    func showDetailCapsules(with vc: UIViewController, and model: CapsuleDetailsModel)
+    func showSettings(with vc: UIViewController)
+    
+    func showLoader()
+    func hideLoader()
 }
 
 import UIKit
@@ -60,9 +64,26 @@ extension Router: RouterProtocol {
 //        navController.pushViewController(detailViewController, animated: true)
     }
     
-    func showDetailCapsules(with vc: UIViewController) {
-//        let detailViewController = mainTabBarBuilder.capsulesBuilder.createDetailCapsuleModule(router: self)
-//        guard let navController = tabBarController.getNavController(with: vc) else { return }
-//        navController.pushViewController(detailViewController, animated: true)
+    func showDetailCapsules(with vc: UIViewController, and model: CapsuleDetailsModel) {
+        let detailViewController = mainTabBarBuilder.capsulesBuilder.createCapsuleDetailsModule(
+            router: self,
+            model: model
+        )
+        guard let navController = tabBarController.getNavController(with: vc) else { return }
+        navController.pushViewController(detailViewController, animated: true)
+    }
+    
+    func showSettings(with vc: UIViewController) {
+        let settingsViewController = UIViewController()
+        settingsViewController.modalPresentationStyle = .formSheet
+        tabBarController.present(settingsViewController, animated: true, completion: nil)
+    }
+    
+    func showLoader() {
+        tabBarController.showLoader()
+    }
+    
+    func hideLoader() {
+        tabBarController.hideLoader()
     }
 }

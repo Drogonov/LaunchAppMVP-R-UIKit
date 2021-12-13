@@ -8,17 +8,9 @@
 import Foundation
 import Moya
 
-struct Constants {
-    static let baseUrlString = "https://api.spacexdata.com/v3"
-    static let baseURL: URL = {
-        URL(string: baseUrlString)!
-    }()
-}
-
-
-
 enum SpaceXDataAPI {
     case getCapsules
+    case getCapsule(serial: String)
     case getLaunches
 }
 
@@ -33,13 +25,16 @@ extension SpaceXDataAPI: TargetType {
             return "/capsules"
         case .getLaunches:
             return "/launches"
+        case .getCapsule(serial: let serial):
+            return "/capsules/" + serial
         }
     }
     
     var method: Moya.Method {
         switch self {
         case .getCapsules,
-             .getLaunches:
+             .getLaunches,
+             .getCapsule:
             return .get
         }
     }

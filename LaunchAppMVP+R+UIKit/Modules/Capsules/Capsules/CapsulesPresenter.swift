@@ -16,8 +16,8 @@ protocol CapsulesPresenterProtocol: AnyObject {
     )
     
     func setView()
-    func loadCapsules()
-    func routeToDetails(with capsuleID: UUID?)
+    func routeToDetails(with capsuleSerial: String?, and viewController: UIViewController)
+    func routeToSettings(with viewController: UIViewController)
 }
 
 class CapsulesPresenter {
@@ -30,7 +30,8 @@ class CapsulesPresenter {
     
     weak var view: CapsulesViewControllerProtocol?
     var router: RouterProtocol
-    private var capsulesArray: [CapsuleCellViewModel] = []
+    
+    private var viewModel = CapsulesViewModel()
     
     // MARK: - Construction
     
@@ -47,46 +48,44 @@ class CapsulesPresenter {
 
 extension CapsulesPresenter: CapsulesPresenterProtocol {
     func setView() {
-        let viewModel = configureViewModel()
+        viewModel.navigationTitle = "Capsules"
+        loadCapsules()
         self.view?.setView(with: viewModel)
     }
-    
-    func loadCapsules() {
-        spaceXDataService.getCapsulesList { [weak self] result in
-            guard let self = self else { return }
-            self.view?.showLoader()
-            switch result {
-            case .success(let response):
-                guard let capsules = response else { return }
-                self.configureCapsulesArray(with: capsules)
-                self.setView()
-                self.view?.hideLoader()
-            case .failure(let error):
-                self.view?.hideLoader()
-                debugPrint(error)
-            }
-        }
+        
+    func routeToDetails(with capsuleSerial: String?, and viewController: UIViewController) {
+        guard let capsuleSerial = capsuleSerial else { return }
+        let model = CapsuleDetailsModel(serial: capsuleSerial)
+        router.showDetailCapsules(with: viewController, and: model)
     }
     
-    func routeToDetails(with capsuleID: UUID?) {
-        
+    func routeToSettings(with viewController: UIViewController) {
+        router.showSettings(with: viewController)
     }
 }
 
 // MARK: - Helper Functions
 
 extension CapsulesPresenter {
-    func configureViewModel() -> CapsulesViewModel {
-        return CapsulesViewModel(
-            navigationTitle: "Capsules",
-            capsules: capsulesArray
-        )
+    private func loadCapsules() {
+        self.router.showLoader()
+        spaceXDataService.getCapsulesList { [weak self] result in
+            guard let self = self else { return }
+            sleep(Constants.delay)
+            switch result {
+            case .success(let response):
+                guard let capsules = response else { return }
+                self.configureCapsulesArray(with: capsules)
+                self.router.hideLoader()
+            case .failure(let error):
+                self.router.hideLoader()
+                debugPrint(error)
+            }
+        }
     }
     
-    func configureCapsulesArray(with response: [CapsuleMo]) {
-        var capsules: [CapsuleCellViewModel] = []
-        
-        capsules = response.map { model in
+    private func configureCapsulesArray(with response: [CapsuleMo]) {
+        viewModel.capsules = response.map { model in
             let statusButtonColor: UIColor = model.status == "active" ? .green : .red
             let serial = model.capsuleSerial ?? "no serial"
             
@@ -96,7 +95,6 @@ extension CapsulesPresenter {
                 capsuleEmoji: "🛰"
             )
         }
-        
-        capsulesArray = capsules
+        self.view?.setView(with: viewModel)
     }
 }

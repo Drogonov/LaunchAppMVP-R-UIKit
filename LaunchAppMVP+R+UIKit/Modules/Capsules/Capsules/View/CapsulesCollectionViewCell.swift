@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CapsulesCollectionViewCellDelegate: AnyObject {
-    func capsuleTapped(with capsuleID: UUID?)
+    func capsuleTapped(with capsuleSerial: String?)
 }
 
 class CapsulesCollectionViewCell: UICollectionViewCell {
@@ -17,6 +17,8 @@ class CapsulesCollectionViewCell: UICollectionViewCell {
     
     weak var delegate: CapsulesCollectionViewCellDelegate?
     static let reuseId = "CapsulesCollectionViewCell"
+    
+    // MARK: - Variables
     
     private var capsuleID: UUID? = nil
     private var statusButtonColor: UIColor? = nil
@@ -51,7 +53,7 @@ class CapsulesCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    // MARK: - Init
+    // MARK: - Construction
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -74,16 +76,28 @@ class CapsulesCollectionViewCell: UICollectionViewCell {
     // MARK: - Selectors
     
     @objc func capsuleTapped() {
-        delegate?.capsuleTapped(with: capsuleID)
+        delegate?.capsuleTapped(with: capsuleName)
     }
     
-    // MARK: - Helper Functions
+    // MARK: - Methods
     
+    func set(viewModel: CapsuleCellViewModel) {
+        capsuleID = viewModel.id
+        statusButtonColor = viewModel.statusButtonColor
+        capsuleName = viewModel.capsuleName
+        capsuleEmoji = viewModel.capsuleEmoji
+        configureUI()
+    }
+}
+
+// MARK: - Configure UI
+
+extension CapsulesCollectionViewCell {
     private func configureUI() {
         configureCapsuleStatus()
         configureCapsuleButton()
         configureCapsuleName()
-
+        
         backgroundColor = .secondarySystemBackground
         layer.cornerRadius = 10
     }
@@ -104,7 +118,10 @@ class CapsulesCollectionViewCell: UICollectionViewCell {
     
     private func configureCapsuleButton() {
         capsuleImageButton.setImage(capsuleImage, for: .normal)
-        capsuleImageButton.setTitle(String(capsuleEmoji ?? "❓"), for: .normal)
+        capsuleImageButton.setTitle(
+            String(capsuleEmoji ?? "❓"),
+            for: .normal
+        )
         addSubview(capsuleImageButton)
         capsuleImageButton.anchor(
             top: capsuleStatusButton.bottomAnchor,
@@ -114,9 +131,11 @@ class CapsulesCollectionViewCell: UICollectionViewCell {
         )
         capsuleImageButton.centerX(inView: self)
         capsuleImageButton.layer.cornerRadius = capsuleImageViewSize / 2
-        capsuleImageButton.addTarget(self,
-                                       action: #selector(capsuleTapped),
-                                       for: .touchUpInside)
+        capsuleImageButton.addTarget(
+            self,
+            action: #selector(capsuleTapped),
+            for: .touchUpInside
+        )
     }
     
     private func configureCapsuleName() {
@@ -131,16 +150,5 @@ class CapsulesCollectionViewCell: UICollectionViewCell {
             paddingBottom: 16,
             paddingRight: 16
         )
-    }
-    
-    
-    // MARK: - Set
-    
-    func set(viewModel: CapsuleCellViewModel) {
-        capsuleID = viewModel.id
-        statusButtonColor = viewModel.statusButtonColor
-        capsuleName = viewModel.capsuleName
-        capsuleEmoji = viewModel.capsuleEmoji
-        configureUI()
     }
 }

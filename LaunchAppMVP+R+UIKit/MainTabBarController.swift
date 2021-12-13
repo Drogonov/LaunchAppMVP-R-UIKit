@@ -32,6 +32,8 @@ enum TabBarItemType {
 
 class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     
+    private lazy var spinner = BaseLoaderViewController()
+
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -91,5 +93,28 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         }
         
         return vc.viewControllers.last
+    }
+}
+
+// MARK: - BaseViewLoader
+
+extension MainTabBarController: BaseViewLoader {
+    func showLoader() {
+        addChild(spinner)
+        spinner.view.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(spinner.view)
+        spinner.spinner.startAnimation()
+        spinner.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        spinner.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        spinner.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        spinner.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        spinner.didMove(toParent: self)
+    }
+    
+    func hideLoader() {
+        spinner.spinner.stopAnimation()
+        spinner.willMove(toParent: nil)
+        spinner.view.removeFromSuperview()
+        spinner.removeFromParent()
     }
 }

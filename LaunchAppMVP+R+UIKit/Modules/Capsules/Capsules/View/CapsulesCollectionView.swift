@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CapsulesCollectionViewDelegate: AnyObject {
-    func capsuleTapped(with capsuleID: UUID?)
+    func capsuleTapped(with capsuleSerial: String?)
 }
 
 class CapsulesCollectionView: UIView {
@@ -35,7 +35,6 @@ class CapsulesCollectionView: UIView {
             forCellWithReuseIdentifier: CapsulesCollectionViewCell.reuseId
         )
         
-        //        collectionView.isPagingEnabled = true
         collectionView.backgroundColor = .systemBackground
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
@@ -43,6 +42,8 @@ class CapsulesCollectionView: UIView {
         
         return collectionView
     }()
+    
+    // MARK: - Construction
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -53,8 +54,18 @@ class CapsulesCollectionView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - ConfigureUI Functions
+    // MARK: - Methods
     
+    func set(capsules: [CapsuleCellViewModel]) {
+        self.capsules = capsules
+        collectionView.contentOffset = CGPoint.zero
+        collectionView.reloadData()
+    }
+}
+
+// MARK: - Configure UI
+
+extension CapsulesCollectionView {
     private func configureUI() {
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -70,12 +81,6 @@ class CapsulesCollectionView: UIView {
             paddingBottom: 16,
             paddingRight: 16
         )
-    }
-    
-    func set(capsules: [CapsuleCellViewModel]) {
-        self.capsules = capsules
-        collectionView.contentOffset = CGPoint.zero
-        collectionView.reloadData()
     }
 }
 
@@ -118,7 +123,7 @@ extension CapsulesCollectionView: UICollectionViewDelegateFlowLayout {
 }
 
 extension CapsulesCollectionView: CapsulesCollectionViewCellDelegate {
-    func capsuleTapped(with capsuleID: UUID?) {
-        delegate?.capsuleTapped(with: capsuleID)
+    func capsuleTapped(with capsuleSerial: String?) {
+        delegate?.capsuleTapped(with: capsuleSerial)
     }
 }

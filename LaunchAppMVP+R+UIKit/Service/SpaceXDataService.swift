@@ -18,6 +18,11 @@ protocol SpaceXDataServiceProtocol {
     func getCapsulesList(
         completion: @escaping ((Result<[CapsuleMo]?, HTMAPIError>) -> Void)
     )
+    
+    func getCapsule(
+        serial: String,
+        completion: @escaping ((Result<CapsuleMo?, HTMAPIError>) -> Void)
+    )
 }
 
 final class SpaceXDataService: SpaceXDataServiceProtocol, Injectable {
@@ -49,6 +54,24 @@ final class SpaceXDataService: SpaceXDataServiceProtocol, Injectable {
             switch result {
             case .success(let response):
                 guard let responseModel = try? response.map([CapsuleMo].self) else {
+                    completion(.failure(.deserialization))
+                    return
+                }
+                completion(.success(responseModel))
+            case .failure(let error):
+                print(error)
+                completion(.failure(.unknown))
+            }
+        }
+    }
+    
+    func getCapsule(serial: String, completion: @escaping ((Result<CapsuleMo?, HTMAPIError>) -> Void)) {
+        provider.request(
+            .getCapsule(serial: serial)
+        ) { result in
+            switch result {
+            case .success(let response):
+                guard let responseModel = try? response.map(CapsuleMo.self) else {
                     completion(.failure(.deserialization))
                     return
                 }

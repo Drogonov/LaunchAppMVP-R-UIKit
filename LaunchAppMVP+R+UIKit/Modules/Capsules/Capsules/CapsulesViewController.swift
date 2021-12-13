@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol CapsulesViewControllerProtocol: BaseViewLoader {
+protocol CapsulesViewControllerProtocol: AnyObject {
     func setView(with viewModel: CapsulesViewModel)
 }
 
@@ -22,16 +22,14 @@ class CapsulesViewController: BaseViewController {
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        presenter?.loadCapsules()
+        super.viewDidLoad()        
         configureUI()
     }
     
     // MARK: - Selectors
     
     @objc func settingsTapped() {
-        debugPrint("settingsTapped")
+        presenter?.routeToSettings(with: self)
     }
 }
 
@@ -56,7 +54,8 @@ extension CapsulesViewController {
     
     private func configureCollectionView() {
         capsulesCollectionView.delegate = self
-        addMainUIKitViewToViewController(capsulesCollectionView)
+        capsulesCollectionView.set(capsules: [])
+        addUIViewToViewController(capsulesCollectionView)
     }
     
     private func configureView(with viewModel: CapsulesViewModel) {
@@ -76,7 +75,7 @@ extension CapsulesViewController: CapsulesViewControllerProtocol {
 // MARK: - CapsulesCollectionViewDelegate
 
 extension CapsulesViewController: CapsulesCollectionViewDelegate {
-    func capsuleTapped(with capsuleID: UUID?) {
-        presenter?.routeToDetails(with: capsuleID)
+    func capsuleTapped(with capsuleSerial: String?) {
+        presenter?.routeToDetails(with: capsuleSerial, and: self)
     }
 }

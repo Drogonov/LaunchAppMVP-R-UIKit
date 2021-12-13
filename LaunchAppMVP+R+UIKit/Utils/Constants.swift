@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+struct Constants {
+    static let baseUrlString = "https://api.spacexdata.com/v3"
+    static let baseURL: URL = {
+        URL(string: baseUrlString)!
+    }()
+    
+    static let delay: UInt32 = 1
+}
