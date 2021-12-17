@@ -32,16 +32,16 @@
 		8477B6012766373C00B9100B /* LaunchMo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477B6002766373C00B9100B /* LaunchMo.swift */; };
 		8477B6032766388400B9100B /* NetworkHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477B6022766388400B9100B /* NetworkHelpers.swift */; };
 		8477B60C2766567D00B9100B /* LaunchesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477B6062766567D00B9100B /* LaunchesBuilder.swift */; };
-		8477B60D2766567D00B9100B /* LaunchesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477B6072766567D00B9100B /* LaunchesModel.swift */; };
 		8477B60E2766567D00B9100B /* LaunchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477B6082766567D00B9100B /* LaunchesViewController.swift */; };
 		8477B60F2766567D00B9100B /* LaunchesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477B6092766567D00B9100B /* LaunchesViewModel.swift */; };
-		8477B6102766567D00B9100B /* LaunchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477B60A2766567D00B9100B /* LaunchesView.swift */; };
+		8477B6102766567D00B9100B /* LaunchesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477B60A2766567D00B9100B /* LaunchesTableView.swift */; };
 		8477B6112766567D00B9100B /* LaunchesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477B60B2766567D00B9100B /* LaunchesPresenter.swift */; };
 		8477B614276656C400B9100B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477B613276656C400B9100B /* Router.swift */; };
 		8477B61C276657E500B9100B /* CapsulesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477B616276657E500B9100B /* CapsulesBuilder.swift */; };
 		8477B61E276657E500B9100B /* CapsulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477B618276657E500B9100B /* CapsulesViewController.swift */; };
 		8477B61F276657E500B9100B /* CapsulesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477B619276657E500B9100B /* CapsulesViewModel.swift */; };
 		8477B621276657E500B9100B /* CapsulesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477B61B276657E500B9100B /* CapsulesPresenter.swift */; };
+		84974090276C8A8F00D23CC7 /* LaunchesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497408F276C8A8F00D23CC7 /* LaunchesTableViewCell.swift */; };
 		849BC3B4276384C20094A929 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BC3B3276384C20094A929 /* AppDelegate.swift */; };
 		849BC3B6276384C20094A929 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BC3B5276384C20094A929 /* SceneDelegate.swift */; };
 		849BC3B8276384C20094A929 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BC3B7276384C20094A929 /* MainTabBarController.swift */; };
@@ -80,16 +80,16 @@
 		8477B6002766373C00B9100B /* LaunchMo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchMo.swift; sourceTree = "<group>"; };
 		8477B6022766388400B9100B /* NetworkHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelpers.swift; sourceTree = "<group>"; };
 		8477B6062766567D00B9100B /* LaunchesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesBuilder.swift; sourceTree = "<group>"; };
-		8477B6072766567D00B9100B /* LaunchesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesModel.swift; sourceTree = "<group>"; };
 		8477B6082766567D00B9100B /* LaunchesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesViewController.swift; sourceTree = "<group>"; };
 		8477B6092766567D00B9100B /* LaunchesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesViewModel.swift; sourceTree = "<group>"; };
-		8477B60A2766567D00B9100B /* LaunchesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesView.swift; sourceTree = "<group>"; };
+		8477B60A2766567D00B9100B /* LaunchesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesTableView.swift; sourceTree = "<group>"; };
 		8477B60B2766567D00B9100B /* LaunchesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesPresenter.swift; sourceTree = "<group>"; };
 		8477B613276656C400B9100B /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		8477B616276657E500B9100B /* CapsulesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsulesBuilder.swift; sourceTree = "<group>"; };
 		8477B618276657E500B9100B /* CapsulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsulesViewController.swift; sourceTree = "<group>"; };
 		8477B619276657E500B9100B /* CapsulesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsulesViewModel.swift; sourceTree = "<group>"; };
 		8477B61B276657E500B9100B /* CapsulesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsulesPresenter.swift; sourceTree = "<group>"; };
+		8497408F276C8A8F00D23CC7 /* LaunchesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesTableViewCell.swift; sourceTree = "<group>"; };
 		849BC3B0276384C20094A929 /* LaunchAppMVP+R+UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LaunchAppMVP+R+UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		849BC3B3276384C20094A929 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		849BC3B5276384C20094A929 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -195,11 +195,10 @@
 		8477B6122766568200B9100B /* Launches */ = {
 			isa = PBXGroup;
 			children = (
+				8497408E276C8A6900D23CC7 /* View */,
 				8477B6062766567D00B9100B /* LaunchesBuilder.swift */,
-				8477B6072766567D00B9100B /* LaunchesModel.swift */,
 				8477B6082766567D00B9100B /* LaunchesViewController.swift */,
 				8477B6092766567D00B9100B /* LaunchesViewModel.swift */,
-				8477B60A2766567D00B9100B /* LaunchesView.swift */,
 				8477B60B2766567D00B9100B /* LaunchesPresenter.swift */,
 			);
 			path = Launches;
@@ -213,6 +212,15 @@
 				8470445D27678FE600F5C3AB /* CapsuleDetails */,
 			);
 			path = Capsules;
+			sourceTree = "<group>";
+		};
+		8497408E276C8A6900D23CC7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8477B60A2766567D00B9100B /* LaunchesTableView.swift */,
+				8497408F276C8A8F00D23CC7 /* LaunchesTableViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		849BC3A7276384C20094A929 = {
@@ -373,7 +381,6 @@
 				8477B60C2766567D00B9100B /* LaunchesBuilder.swift in Sources */,
 				847044492767515D00F5C3AB /* DependencyManager.swift in Sources */,
 				849BC3E7276398E40094A929 /* BaseLoaderViewController.swift in Sources */,
-				8477B60D2766567D00B9100B /* LaunchesModel.swift in Sources */,
 				8477B621276657E500B9100B /* CapsulesPresenter.swift in Sources */,
 				8424A0FD276C5DE000221CEE /* SettingsView.swift in Sources */,
 				8477B60F2766567D00B9100B /* LaunchesViewModel.swift in Sources */,
@@ -386,6 +393,7 @@
 				847044612767ABC300F5C3AB /* CapsuleDetailsTableView.swift in Sources */,
 				8470445927678FE000F5C3AB /* CapsuleDetailsViewController.swift in Sources */,
 				847044652767B89100F5C3AB /* CapsuleDetailsTableViewCell.swift in Sources */,
+				84974090276C8A8F00D23CC7 /* LaunchesTableViewCell.swift in Sources */,
 				8424A0FC276C5DE000221CEE /* SettingsViewModel.swift in Sources */,
 				8477B61F276657E500B9100B /* CapsulesViewModel.swift in Sources */,
 				849BC3EB2763995F0094A929 /* Extension + UIView.swift in Sources */,
@@ -401,7 +409,7 @@
 				8470444E27675B8300F5C3AB /* CapsulesCollectionViewCell.swift in Sources */,
 				8477B6012766373C00B9100B /* LaunchMo.swift in Sources */,
 				8477B61C276657E500B9100B /* CapsulesBuilder.swift in Sources */,
-				8477B6102766567D00B9100B /* LaunchesView.swift in Sources */,
+				8477B6102766567D00B9100B /* LaunchesTableView.swift in Sources */,
 				8477B6032766388400B9100B /* NetworkHelpers.swift in Sources */,
 				8477B5FF2766373100B9100B /* CapsuleMo.swift in Sources */,
 				849BC3E5276398D60094A929 /* BaseViewController.swift in Sources */,

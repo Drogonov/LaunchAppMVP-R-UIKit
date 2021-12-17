@@ -10,7 +10,6 @@ import UIKit
 
 protocol LaunchesViewControllerProtocol: AnyObject {
     func setView(with viewModel: LaunchesViewModel)
-    
 }
 
 class LaunchesViewController: BaseViewController {
@@ -18,12 +17,19 @@ class LaunchesViewController: BaseViewController {
     // MARK: - Properties
     
     var presenter: LaunchesPresenterProtocol?
+    private var launchesTableView = LaunchesTableView()
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+    }
+    
+    // MARK: - Selectors
+    
+    @objc func settingsTapped() {
+        presenter?.routeToSettings(with: self)
     }
 }
 
@@ -32,24 +38,35 @@ class LaunchesViewController: BaseViewController {
 extension LaunchesViewController {
     private func configureUI() {
         presenter?.setView()
+        configureTableView()
+    }
+    
+    private func configureNavigationBar(navigationTitle: String) {
+        setNavigationBarTitle(with: navigationTitle)
+        let image = UIImage(systemName: "gear")!
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: image,
+            style: .plain,
+            target: self,
+            action: #selector(settingsTapped)
+        )
+    }
+    
+    private func configureTableView() {
+        launchesTableView.set(launches: [])
+        addUIViewToViewController(launchesTableView)
     }
     
     private func configureView(with viewModel: LaunchesViewModel) {
-        let view = LaunchesView(
-            buttonText: viewModel.buttonText,
-            buttonTapped: {
-                self.presenter?.buttonTapped()
-            }
-        )
-        addMainViewToViewController(view)
+        launchesTableView.set(launches: viewModel.launches)
     }
 }
 
-// MARK: - BrewViewProtocol
+// MARK: - LaunchesViewControllerProtocol
 
 extension LaunchesViewController: LaunchesViewControllerProtocol {
     func setView(with viewModel: LaunchesViewModel) {
-        setNavigationBarTitle(with: viewModel.navigationTitle)
+        configureNavigationBar(navigationTitle: viewModel.navigationTitle)
         configureView(with: viewModel)
     }
 }

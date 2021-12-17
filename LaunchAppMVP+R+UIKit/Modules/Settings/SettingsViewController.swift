@@ -40,6 +40,7 @@ extension SettingsViewController {
     }
     
     private func configureSettingsView() {
+        settingsView.delegate = self
         addUIViewToViewController(settingsView)
     }
     
@@ -48,11 +49,25 @@ extension SettingsViewController {
     }
 }
 
-// MARK: - BrewViewProtocol
+// MARK: - SettingsViewControllerProtocol
 
 extension SettingsViewController: SettingsViewControllerProtocol {
     func setView(with viewModel: SettingsViewModel) {
         configureNavigationBar(navigationTitle: viewModel.navigationTitle)
         configureView(with: viewModel)
+    }
+}
+
+// MARK: - SettingsViewDelegate
+
+extension SettingsViewController: SettingsViewDelegate {
+    func confirmButtonTapped() {
+        showNotification(
+            title: "You confirmed new settings!",
+            message: "Now your app is updated",
+            defaultAction: true,
+            defaultActionText: "OK",
+            completion: {_,_ in }
+        )
     }
 }

@@ -25,33 +25,10 @@ class CapsulesCollectionViewCell: UICollectionViewCell {
     private var capsuleImage: UIImage? = nil
     private var capsuleName: String? = nil
     private var capsuleEmoji: String? = nil
-    
-    private let capsuleStatusButtonSize: CGFloat = 16
-    private let capsuleImageViewSize: CGFloat = 120
-    
-    private let capsuleStatusButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.layer.masksToBounds = true
-        return button
-    }()
-    
-    private let capsuleImageButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.contentMode = .scaleAspectFill
-        button.backgroundColor = .systemBackground
-        button.layer.masksToBounds = true
-        button.layer.borderColor = UIColor.label.cgColor
-        button.layer.borderWidth = 2
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 64)
-        return button
-    }()
-    
-    private var capsuleNameLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.textAlignment = .center
-        return label
-    }()
+        
+    private let capsuleStatusButton = UIButton(type: .system)
+    private let capsuleImageButton = UIButton(type: .system)
+    private let capsuleNameLabel = UILabel()
     
     // MARK: - Construction
     
@@ -104,15 +81,17 @@ extension CapsulesCollectionViewCell {
     
     private func configureCapsuleStatus() {
         capsuleStatusButton.backgroundColor = statusButtonColor
-        addSubview(capsuleStatusButton)
+        capsuleStatusButton.layer.masksToBounds = true
+
+        contentView.addSubview(capsuleStatusButton)
         capsuleStatusButton.anchor(
             top: self.topAnchor,
             paddingTop: 16,
-            width: capsuleStatusButtonSize,
-            height: capsuleStatusButtonSize
+            width: Constant.capsuleStatusButtonSize,
+            height: Constant.capsuleStatusButtonSize
         )
         capsuleStatusButton.centerX(inView: self)
-        capsuleStatusButton.layer.cornerRadius = capsuleStatusButtonSize / 2
+        capsuleStatusButton.layer.cornerRadius = Constant.capsuleStatusButtonSize / 2
         capsuleStatusButton.addShadow()
     }
     
@@ -122,15 +101,22 @@ extension CapsulesCollectionViewCell {
             String(capsuleEmoji ?? "❓"),
             for: .normal
         )
-        addSubview(capsuleImageButton)
+        capsuleImageButton.contentMode = .scaleAspectFill
+        capsuleImageButton.backgroundColor = .systemBackground
+        capsuleImageButton.layer.masksToBounds = true
+        capsuleImageButton.layer.borderColor = UIColor.label.cgColor
+        capsuleImageButton.layer.borderWidth = 2
+        capsuleImageButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 64)
+        
+        contentView.addSubview(capsuleImageButton)
         capsuleImageButton.anchor(
             top: capsuleStatusButton.bottomAnchor,
             paddingTop: 16,
-            width: capsuleImageViewSize,
-            height: capsuleImageViewSize
+            width: Constant.capsuleImageViewSize,
+            height: Constant.capsuleImageViewSize
         )
         capsuleImageButton.centerX(inView: self)
-        capsuleImageButton.layer.cornerRadius = capsuleImageViewSize / 2
+        capsuleImageButton.layer.cornerRadius = Constant.capsuleImageViewSize / 2
         capsuleImageButton.addTarget(
             self,
             action: #selector(capsuleTapped),
@@ -140,7 +126,10 @@ extension CapsulesCollectionViewCell {
     
     private func configureCapsuleName() {
         capsuleNameLabel.text = capsuleName
-        addSubview(capsuleNameLabel)
+        capsuleNameLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        capsuleNameLabel.textAlignment = .center
+        
+        contentView.addSubview(capsuleNameLabel)
         capsuleNameLabel.anchor(
             top: capsuleImageButton.bottomAnchor,
             leading: self.leftAnchor,
@@ -152,3 +141,13 @@ extension CapsulesCollectionViewCell {
         )
     }
 }
+
+// MARK: - Constants
+
+extension CapsulesCollectionViewCell {
+    private enum Constant {
+        static let capsuleStatusButtonSize: CGFloat = 16
+        static let capsuleImageViewSize: CGFloat = 120
+    }
+}
+

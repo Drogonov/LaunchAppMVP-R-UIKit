@@ -28,10 +28,10 @@ class CapsuleDetailsTableViewCell: UITableViewCell {
         reuseIdentifier: String?
     ) {
         super.init(
-            style: .value2,
+            style: style,
             reuseIdentifier: reuseIdentifier
         )
-        configureUI()
+        set(title: title, value: value)
     }
     
     required init?(coder: NSCoder) {
@@ -47,7 +47,7 @@ class CapsuleDetailsTableViewCell: UITableViewCell {
     // MARK: - Methods
     
     func set(title: String, value: String) {
-        self.title = title
+        self.title = title + ":"
         self.value = value
         configureUI()
     }
@@ -64,11 +64,13 @@ extension CapsuleDetailsTableViewCell {
     private func configureTitleLabel() {
         titleLabel.text = title
         titleLabel.numberOfLines = 0
+        titleLabel.adjustsFontForContentSizeCategory = true
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 16)
         
-        addSubview(titleLabel)
+        contentView.addSubview(titleLabel)
         titleLabel.anchor(
-            top: self.topAnchor,
-            leading: self.leftAnchor,
+            top: contentView.topAnchor,
+            leading: contentView.leftAnchor,
             paddingTop: 8,
             paddingLeft: 16,
             width: 80
@@ -78,13 +80,15 @@ extension CapsuleDetailsTableViewCell {
     private func configureValueLabel() {
         valueLabel.text = value
         valueLabel.numberOfLines = 0
-        addSubview(valueLabel)
-        
+        valueLabel.adjustsFontForContentSizeCategory = true
+        valueLabel.font = UIFont.systemFont(ofSize: 16)
+
+        contentView.addSubview(valueLabel)
         valueLabel.anchor(
-            top: self.topAnchor,
+            top: contentView.topAnchor,
             leading: titleLabel.rightAnchor,
-            bottom: self.bottomAnchor,
-            trailing: self.rightAnchor,
+            bottom: contentView.bottomAnchor,
+            trailing: contentView.rightAnchor,
             paddingTop: 8,
             paddingLeft: 8,
             paddingBottom: 8,

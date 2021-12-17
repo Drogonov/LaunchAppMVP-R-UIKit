@@ -29,3 +29,13 @@ enum TabBarItemType {
         }
     }
 }
+
+enum NotificationConfiguration {
+    case textField
+    case defaultAction
+    case rejectAction
+    
+    init() {
+        self = .defaultAction
+    }
+}

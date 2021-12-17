@@ -18,30 +18,10 @@ class CapsulesCollectionView: UIView {
     private var capsules = [CapsuleCellViewModel]()
     weak var delegate: CapsulesCollectionViewDelegate?
     
-    private var collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = 10
-        
-        let collectionView = UICollectionView(
-            frame: .zero,
-            collectionViewLayout: layout
-        )
-        
-        collectionView.register(
-            CapsulesCollectionViewCell.self,
-            forCellWithReuseIdentifier: CapsulesCollectionViewCell.reuseId
-        )
-        
-        collectionView.backgroundColor = .systemBackground
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.layer.masksToBounds = false
-        
-        return collectionView
-    }()
+    private lazy var collectionView = UICollectionView(
+        frame: .zero,
+        collectionViewLayout: configureCollectionViewLayout()
+    )
     
     // MARK: - Construction
     
@@ -70,6 +50,16 @@ extension CapsulesCollectionView {
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        collectionView.register(
+            CapsulesCollectionViewCell.self,
+            forCellWithReuseIdentifier: CapsulesCollectionViewCell.reuseId
+        )
+        
+        collectionView.backgroundColor = .systemBackground
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.layer.masksToBounds = false
+        
         addSubview(collectionView)
         collectionView.anchor(
             top: self.topAnchor,
@@ -81,6 +71,16 @@ extension CapsulesCollectionView {
             paddingBottom: 16,
             paddingRight: 16
         )
+    }
+    
+    func configureCollectionViewLayout() -> UICollectionViewFlowLayout {
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
+        
+        return layout
     }
 }
 

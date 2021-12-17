@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol LaunchesPresenterProtocol: AnyObject {
     init(
@@ -14,19 +15,22 @@ protocol LaunchesPresenterProtocol: AnyObject {
         router: RouterProtocol
     )
     func setView()
-    func buttonTapped()
+    func routeToSettings(with viewController: UIViewController)
 }
 
 class LaunchesPresenter {
     
     // MARK: - Services
     
+    @Inject var spaceXDataService: SpaceXDataService
+    
     // MARK: - Properties
     
     weak var view: LaunchesViewControllerProtocol?
     var router: RouterProtocol
-    var model: LaunchesModel = LaunchesModel()
-    
+
+    private var viewModel = LaunchesViewModel()
+
     // MARK: - Construction
     
     required init(
@@ -42,22 +46,46 @@ class LaunchesPresenter {
 
 extension LaunchesPresenter: LaunchesPresenterProtocol {
     func setView() {
-        let viewModel = configureViewModel()
+        viewModel.navigationTitle = "Launches"
+        loadLaunches()
         self.view?.setView(with: viewModel)
     }
     
-    func buttonTapped() {
-        debugPrint("buttonTapped")
+    func routeToSettings(with viewController: UIViewController) {
+        let model = SettingsModel(type: .launches)
+        router.showSettings(with: model)
     }
 }
 
 // MARK: - Helper Functions
 
 extension LaunchesPresenter {
-    func configureViewModel() -> LaunchesViewModel {
-        return LaunchesViewModel(
-            navigationTitle: "navigationTitle",
-            buttonText: "buttonText"
-        )
+    private func loadLaunches() {
+        self.router.showLoader()
+        spaceXDataService.getLaunchesList { [weak self] result in
+            guard let self = self else { return }
+            sleep(Constants.delay)
+            switch result {
+            case .success(let response):
+                guard let launches = response else { return }
+                self.configureLaunchesArray(with: launches)
+                self.router.hideLoader()
+            case .failure(let error):
+                self.router.hideLoader()
+                debugPrint(error)
+            }
+        }
+    }
+    
+    private func configureLaunchesArray(with response: [LaunchMo]) {
+        viewModel.launches = response.map { model in
+            return LaunchesCellViewModel(
+                name: model.missionName ?? "unnamed",
+                details: model.details ?? "no data",
+                launchYear: model.launchYear ?? "no data",
+                imageURL: model.links?.missionPatchSmall ?? ""
+            )
+        }
+        self.view?.setView(with: viewModel)
     }
 }

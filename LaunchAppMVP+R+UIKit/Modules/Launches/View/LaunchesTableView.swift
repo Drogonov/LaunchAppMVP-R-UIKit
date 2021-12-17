@@ -1,20 +1,20 @@
 //
-//  CapsuleDetailsTableView.swift
+//  LaunchesTableView.swift
 //  LaunchAppMVP+R+UIKit
 //
-//  Created by Anton Vlezko on 13.12.2021.
+//  Created by Anton Vlezko on 12.12.2021.
+//  Copyright (c) 2021 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
-import UIKit
+import SwiftUI
 
-class CapsuleDetailsTableView: UIView {
+class LaunchesTableView: UIView {
     
     // MARK: - Properties
     
-    private var capsuleValues: [CapsuleDetailsCellViewModel] = []
+    private var launches: [LaunchesCellViewModel] = []
+    private var tableView = UITableView(frame: .zero, style: .plain)
 
-    private var tableView = UITableView(frame: .zero, style: .insetGrouped)
-    
     // MARK: - Construction
     
     override init(frame: CGRect) {
@@ -28,28 +28,26 @@ class CapsuleDetailsTableView: UIView {
     
     // MARK: - Methods
     
-    func set(capsuleValues: [CapsuleDetailsCellViewModel]) {
-        self.capsuleValues = capsuleValues
+    func set(launches: [LaunchesCellViewModel]) {
+        self.launches = launches
         tableView.reloadData()
     }
 }
 
 // MARK: - Configure UI
 
-extension CapsuleDetailsTableView {
+extension LaunchesTableView {
     private func configureUI() {
         tableView.delegate = self
         tableView.dataSource = self
 
         tableView.layer.masksToBounds = false
         tableView.backgroundColor = .systemGroupedBackground
-        
         tableView.estimatedRowHeight = 50
         tableView.rowHeight = UITableView.automaticDimension
-        
         tableView.register(
-            CapsuleDetailsTableViewCell.self,
-            forCellReuseIdentifier: CapsuleDetailsTableViewCell.reuseId
+            LaunchesTableViewCell.self,
+            forCellReuseIdentifier: LaunchesTableViewCell.reuseId
         )
         
         addSubview(tableView)
@@ -64,26 +62,18 @@ extension CapsuleDetailsTableView {
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
 
-extension CapsuleDetailsTableView: UITableViewDelegate, UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Info"
-    }
-    
+extension LaunchesTableView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return capsuleValues.count
+        return launches.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: CapsuleDetailsTableViewCell.reuseId,
+            withIdentifier: LaunchesTableViewCell.reuseId,
             for: indexPath
-        ) as! CapsuleDetailsTableViewCell
-        let model = capsuleValues[indexPath.row]
-        cell.set(title: model.title, value: model.value)
+        ) as! LaunchesTableViewCell
+        let model = launches[indexPath.row]
+        cell.set(model: model)
         
         return cell
     }

@@ -8,21 +8,26 @@
 
 import SwiftUI
 
+protocol SettingsViewDelegate: AnyObject {
+    func confirmButtonTapped()
+}
+
 class SettingsView: UIView {
     
     // MARK: - Properties
     
+    weak var delegate: SettingsViewDelegate?
+    
     private var model = SettingsViewModel()
     
-    private var textView = UITextView()
-    private var confirmButton = UIButton()
+    private let textView = UITextView()
+    private let confirmButton = UIButton(type: .system)
     
     // MARK: - Construction
     
     init() {
         super.init(frame: .zero)
         set(model: model)
-        configureUI()
     }
     
     required init?(coder: NSCoder) {
@@ -32,7 +37,7 @@ class SettingsView: UIView {
     // MARK: - Selectors
     
     @objc func confitmButtonTapped() {
-        debugPrint("confirm button tapped")
+        delegate?.confirmButtonTapped()
     }
     
     // MARK: - Methods
@@ -40,6 +45,7 @@ class SettingsView: UIView {
     func set(model: SettingsViewModel) {
         textView.text = model.text
         confirmButton.setTitle(model.buttonText, for: .normal)
+        configureUI()
     }
 }
 
@@ -68,9 +74,10 @@ extension SettingsView {
     
     private func configureButton() {
         confirmButton.backgroundColor = UIColor.accentColor
+        confirmButton.setTitleColor(UIColor.label, for: .normal)
         confirmButton.layer.cornerRadius = 10
-        confirmButton.titleLabel?.textColor = UIColor.label
         confirmButton.addTarget(self, action: #selector(confitmButtonTapped), for: .touchUpInside)
+        confirmButton.sizeToFit()
         
         addSubview(confirmButton)
         confirmButton.anchor(

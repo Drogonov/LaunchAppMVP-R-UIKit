@@ -12,12 +12,16 @@ import Foundation
 struct LaunchMo: Codable {
     let flightNumber: Int?
     let missionName: String?
+    let details: String?
+    let launchYear: String?
     let links: Links?
 
 
     enum CodingKeys: String, CodingKey {
         case flightNumber = "flight_number"
         case missionName = "mission_name"
+        case details = "details"
+        case launchYear = "launch_year"
         case links = "links"
     }
 }
