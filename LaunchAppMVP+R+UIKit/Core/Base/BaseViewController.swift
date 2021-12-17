@@ -66,7 +66,7 @@ class BaseViewController: UIViewController {
     private func configureNavigationBar() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.tintColor = UIColor.primaryTextColor
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.accentColor]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.label]
     }
     
     private func configureSwipeGesture() {

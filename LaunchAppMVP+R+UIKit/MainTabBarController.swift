@@ -7,29 +7,6 @@
 
 import UIKit
 
-enum TabBarItemType {
-    case launches
-    case capsules
-    
-    var type: UITabBarItem {
-        switch self {
-        case .launches:
-            return UITabBarItem(
-                title: "Launches",
-                image: UIImage(systemName: "capslock")!,
-                selectedImage: UIImage(systemName: "capslock.fill")!
-            )
-            
-        case .capsules:
-            return UITabBarItem(
-                title: "Capsules",
-                image: UIImage(systemName: "bolt.car")!,
-                selectedImage: UIImage(systemName: "bolt.car.fill")!
-            )
-        }
-    }
-}
-
 class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     
     private lazy var spinner = BaseLoaderViewController()

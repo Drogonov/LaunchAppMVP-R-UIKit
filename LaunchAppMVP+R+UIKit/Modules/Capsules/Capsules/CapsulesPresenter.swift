@@ -60,7 +60,8 @@ extension CapsulesPresenter: CapsulesPresenterProtocol {
     }
     
     func routeToSettings(with viewController: UIViewController) {
-        router.showSettings(with: viewController)
+        let model = SettingsModel(type: .capsules)
+        router.showSettings(with: model)
     }
 }
 

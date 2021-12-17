@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8424A0F1276C598F00221CEE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 8424A0F0276C598F00221CEE /* Kingfisher */; };
+		8424A0F9276C5DE000221CEE /* SettingsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424A0F3276C5DE000221CEE /* SettingsBuilder.swift */; };
+		8424A0FA276C5DE000221CEE /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424A0F4276C5DE000221CEE /* SettingsModel.swift */; };
+		8424A0FB276C5DE000221CEE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424A0F5276C5DE000221CEE /* SettingsViewController.swift */; };
+		8424A0FC276C5DE000221CEE /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424A0F6276C5DE000221CEE /* SettingsViewModel.swift */; };
+		8424A0FD276C5DE000221CEE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424A0F7276C5DE000221CEE /* SettingsView.swift */; };
+		8424A0FE276C5DE000221CEE /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424A0F8276C5DE000221CEE /* SettingsPresenter.swift */; };
+		8424A100276C5E4E00221CEE /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424A0FF276C5E4E00221CEE /* Enums.swift */; };
 		847044472767473C00F5C3AB /* MainTabBarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847044462767473C00F5C3AB /* MainTabBarBuilder.swift */; };
 		847044492767515D00F5C3AB /* DependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847044482767515D00F5C3AB /* DependencyManager.swift */; };
 		8470444E27675B8300F5C3AB /* CapsulesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8470444D27675B8300F5C3AB /* CapsulesCollectionViewCell.swift */; };
@@ -49,6 +57,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8424A0F3276C5DE000221CEE /* SettingsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBuilder.swift; sourceTree = "<group>"; };
+		8424A0F4276C5DE000221CEE /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		8424A0F5276C5DE000221CEE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		8424A0F6276C5DE000221CEE /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		8424A0F7276C5DE000221CEE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		8424A0F8276C5DE000221CEE /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		8424A0FF276C5E4E00221CEE /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		847044462767473C00F5C3AB /* MainTabBarBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarBuilder.swift; sourceTree = "<group>"; };
 		847044482767515D00F5C3AB /* DependencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyManager.swift; sourceTree = "<group>"; };
 		8470444D27675B8300F5C3AB /* CapsulesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsulesCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -96,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8424A0F1276C598F00221CEE /* Kingfisher in Frameworks */,
 				8477B5FB276630B000B9100B /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,6 +119,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8424A0F2276C5BC800221CEE /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				8424A0F3276C5DE000221CEE /* SettingsBuilder.swift */,
+				8424A0F4276C5DE000221CEE /* SettingsModel.swift */,
+				8424A0F5276C5DE000221CEE /* SettingsViewController.swift */,
+				8424A0F6276C5DE000221CEE /* SettingsViewModel.swift */,
+				8424A0F7276C5DE000221CEE /* SettingsView.swift */,
+				8424A0F8276C5DE000221CEE /* SettingsPresenter.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		8470444C27675B6D00F5C3AB /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +185,7 @@
 		8477B6052766564E00B9100B /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				8424A0F2276C5BC800221CEE /* Settings */,
 				8477B6122766568200B9100B /* Launches */,
 				8477B615276657D500B9100B /* Capsules */,
 			);
@@ -240,6 +270,7 @@
 		849BC3F027639A150094A929 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				8424A0FF276C5E4E00221CEE /* Enums.swift */,
 				849BC3F92763A6C20094A929 /* Constants.swift */,
 				847044622767B7D200F5C3AB /* Extensions.swift */,
 				849BC3EA2763995F0094A929 /* Extension + UIView.swift */,
@@ -279,6 +310,7 @@
 			name = "LaunchAppMVP+R+UIKit";
 			packageProductDependencies = (
 				8477B5FA276630B000B9100B /* Moya */,
+				8424A0F0276C598F00221CEE /* Kingfisher */,
 			);
 			productName = "LaunchAppMVP+R+UIKit";
 			productReference = 849BC3B0276384C20094A929 /* LaunchAppMVP+R+UIKit.app */;
@@ -310,6 +342,7 @@
 			mainGroup = 849BC3A7276384C20094A929;
 			packageReferences = (
 				8477B5F9276630B000B9100B /* XCRemoteSwiftPackageReference "Moya" */,
+				8424A0EF276C598F00221CEE /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 849BC3B1276384C20094A929 /* Products */;
 			projectDirPath = "";
@@ -342,6 +375,7 @@
 				849BC3E7276398E40094A929 /* BaseLoaderViewController.swift in Sources */,
 				8477B60D2766567D00B9100B /* LaunchesModel.swift in Sources */,
 				8477B621276657E500B9100B /* CapsulesPresenter.swift in Sources */,
+				8424A0FD276C5DE000221CEE /* SettingsView.swift in Sources */,
 				8477B60F2766567D00B9100B /* LaunchesViewModel.swift in Sources */,
 				849BC3EF276399EB0094A929 /* Extension + UIColor.swift in Sources */,
 				8477B6112766567D00B9100B /* LaunchesPresenter.swift in Sources */,
@@ -352,12 +386,17 @@
 				847044612767ABC300F5C3AB /* CapsuleDetailsTableView.swift in Sources */,
 				8470445927678FE000F5C3AB /* CapsuleDetailsViewController.swift in Sources */,
 				847044652767B89100F5C3AB /* CapsuleDetailsTableViewCell.swift in Sources */,
+				8424A0FC276C5DE000221CEE /* SettingsViewModel.swift in Sources */,
 				8477B61F276657E500B9100B /* CapsulesViewModel.swift in Sources */,
 				849BC3EB2763995F0094A929 /* Extension + UIView.swift in Sources */,
 				8477B5FD276632E600B9100B /* SpaceXDataService.swift in Sources */,
 				847044472767473C00F5C3AB /* MainTabBarBuilder.swift in Sources */,
+				8424A0F9276C5DE000221CEE /* SettingsBuilder.swift in Sources */,
+				8424A100276C5E4E00221CEE /* Enums.swift in Sources */,
+				8424A0FA276C5DE000221CEE /* SettingsModel.swift in Sources */,
 				8477B614276656C400B9100B /* Router.swift in Sources */,
 				849BC3FA2763A6C20094A929 /* Constants.swift in Sources */,
+				8424A0FB276C5DE000221CEE /* SettingsViewController.swift in Sources */,
 				847044632767B7D200F5C3AB /* Extensions.swift in Sources */,
 				8470444E27675B8300F5C3AB /* CapsulesCollectionViewCell.swift in Sources */,
 				8477B6012766373C00B9100B /* LaunchMo.swift in Sources */,
@@ -373,6 +412,7 @@
 				8470445C27678FE000F5C3AB /* CapsuleDetailsPresenter.swift in Sources */,
 				849BC3F32763A4CB0094A929 /* SpaceXDataAPI.swift in Sources */,
 				8470445027675B9B00F5C3AB /* CapsulesCollectionView.swift in Sources */,
+				8424A0FE276C5DE000221CEE /* SettingsPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,6 +624,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8424A0EF276C598F00221CEE /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		8477B5F9276630B000B9100B /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya";
@@ -595,6 +643,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8424A0F0276C598F00221CEE /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8424A0EF276C598F00221CEE /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		8477B5FA276630B000B9100B /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8477B5F9276630B000B9100B /* XCRemoteSwiftPackageReference "Moya" */;

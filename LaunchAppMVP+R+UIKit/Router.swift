@@ -16,9 +16,8 @@ protocol RouterProtocol {
     )
     
     func initialMainTabBar()
-    func showDetailLaunch(with vc: UIViewController)
     func showDetailCapsules(with vc: UIViewController, and model: CapsuleDetailsModel)
-    func showSettings(with vc: UIViewController)
+    func showSettings(with model: SettingsModel)
     
     func showLoader()
     func hideLoader()
@@ -57,13 +56,7 @@ extension Router: RouterProtocol {
         
         tabBarController.configureTabBar(with: vcArray)
     }
-        
-    func showDetailLaunch(with vc: UIViewController) {
-//        let detailViewController = mainTabBarBuilder.launchesBuilder.createDetailLaunchModule(router: self)
-//        guard let navController = tabBarController.getNavController(with: vc) else { return }
-//        navController.pushViewController(detailViewController, animated: true)
-    }
-    
+            
     func showDetailCapsules(with vc: UIViewController, and model: CapsuleDetailsModel) {
         let detailViewController = mainTabBarBuilder.capsulesBuilder.createCapsuleDetailsModule(
             router: self,
@@ -73,10 +66,14 @@ extension Router: RouterProtocol {
         navController.pushViewController(detailViewController, animated: true)
     }
     
-    func showSettings(with vc: UIViewController) {
-        let settingsViewController = UIViewController()
+    func showSettings(with model: SettingsModel) {
+        let settingsViewController = mainTabBarBuilder.settingsBuilder.createSettingsModule(
+            router: self,
+            model: model
+        )
+        let navController = UINavigationController(rootViewController: settingsViewController)
         settingsViewController.modalPresentationStyle = .formSheet
-        tabBarController.present(settingsViewController, animated: true, completion: nil)
+        tabBarController.present(navController, animated: true, completion: nil)
     }
     
     func showLoader() {
