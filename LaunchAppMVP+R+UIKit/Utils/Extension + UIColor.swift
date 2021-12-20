@@ -9,6 +9,7 @@ import UIKit
 
 extension UIColor {
     static let backgroundColor = UIColor.systemBackground
+    static let secondaryBackground = UIColor.secondarySystemBackground
     
     static let primaryTextColor = UIColor.label
     static let secondaryTextColor = UIColor.gray

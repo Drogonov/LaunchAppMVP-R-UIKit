@@ -15,6 +15,7 @@
 		8424A0FD276C5DE000221CEE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424A0F7276C5DE000221CEE /* SettingsView.swift */; };
 		8424A0FE276C5DE000221CEE /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424A0F8276C5DE000221CEE /* SettingsPresenter.swift */; };
 		8424A100276C5E4E00221CEE /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424A0FF276C5E4E00221CEE /* Enums.swift */; };
+		845EDDC32770C18900B3F68A /* Extension + UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845EDDC22770C18900B3F68A /* Extension + UIFont.swift */; };
 		847044472767473C00F5C3AB /* MainTabBarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847044462767473C00F5C3AB /* MainTabBarBuilder.swift */; };
 		847044492767515D00F5C3AB /* DependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847044482767515D00F5C3AB /* DependencyManager.swift */; };
 		8470444E27675B8300F5C3AB /* CapsulesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8470444D27675B8300F5C3AB /* CapsulesCollectionViewCell.swift */; };
@@ -64,6 +65,7 @@
 		8424A0F7276C5DE000221CEE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		8424A0F8276C5DE000221CEE /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		8424A0FF276C5E4E00221CEE /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		845EDDC22770C18900B3F68A /* Extension + UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIFont.swift"; sourceTree = "<group>"; };
 		847044462767473C00F5C3AB /* MainTabBarBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarBuilder.swift; sourceTree = "<group>"; };
 		847044482767515D00F5C3AB /* DependencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyManager.swift; sourceTree = "<group>"; };
 		8470444D27675B8300F5C3AB /* CapsulesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsulesCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -132,6 +134,24 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		845EDDC02770C0D700B3F68A /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				849BC3B7276384C20094A929 /* MainTabBarController.swift */,
+				847044462767473C00F5C3AB /* MainTabBarBuilder.swift */,
+			);
+			path = MainTabBar;
+			sourceTree = "<group>";
+		};
+		845EDDC12770C0F600B3F68A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				849BC3E4276398D60094A929 /* BaseViewController.swift */,
+				849BC3E6276398E40094A929 /* BaseLoaderViewController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		8470444C27675B6D00F5C3AB /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +205,7 @@
 		8477B6052766564E00B9100B /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				845EDDC02770C0D700B3F68A /* MainTabBar */,
 				8424A0F2276C5BC800221CEE /* Settings */,
 				8477B6122766568200B9100B /* Launches */,
 				8477B615276657D500B9100B /* Capsules */,
@@ -242,12 +263,10 @@
 		849BC3B2276384C20094A929 /* LaunchAppMVP+R+UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				847044462767473C00F5C3AB /* MainTabBarBuilder.swift */,
-				849BC3B7276384C20094A929 /* MainTabBarController.swift */,
-				8477B613276656C400B9100B /* Router.swift */,
 				8477B6052766564E00B9100B /* Modules */,
 				849BC3F12763A4BB0094A929 /* Service */,
 				849BC3F027639A150094A929 /* Utils */,
+				845EDDC12770C0F600B3F68A /* UI */,
 				849BC3E3276398CB0094A929 /* Core */,
 			);
 			path = "LaunchAppMVP+R+UIKit";
@@ -256,7 +275,7 @@
 		849BC3E3276398CB0094A929 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				849BC3E8276399190094A929 /* Base */,
+				8477B613276656C400B9100B /* Router.swift */,
 				849BC3B3276384C20094A929 /* AppDelegate.swift */,
 				849BC3B5276384C20094A929 /* SceneDelegate.swift */,
 				849BC3BC276384C40094A929 /* Assets.xcassets */,
@@ -266,23 +285,15 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		849BC3E8276399190094A929 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				849BC3E4276398D60094A929 /* BaseViewController.swift */,
-				849BC3E6276398E40094A929 /* BaseLoaderViewController.swift */,
-			);
-			path = Base;
-			sourceTree = "<group>";
-		};
 		849BC3F027639A150094A929 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				8424A0FF276C5E4E00221CEE /* Enums.swift */,
 				849BC3F92763A6C20094A929 /* Constants.swift */,
+				8424A0FF276C5E4E00221CEE /* Enums.swift */,
 				847044622767B7D200F5C3AB /* Extensions.swift */,
 				849BC3EA2763995F0094A929 /* Extension + UIView.swift */,
 				849BC3EC276399700094A929 /* Extension + UIViewController.swift */,
+				845EDDC22770C18900B3F68A /* Extension + UIFont.swift */,
 				849BC3EE276399EB0094A929 /* Extension + UIColor.swift */,
 				847044482767515D00F5C3AB /* DependencyManager.swift */,
 			);
@@ -414,6 +425,7 @@
 				8477B5FF2766373100B9100B /* CapsuleMo.swift in Sources */,
 				849BC3E5276398D60094A929 /* BaseViewController.swift in Sources */,
 				849BC3B4276384C20094A929 /* AppDelegate.swift in Sources */,
+				845EDDC32770C18900B3F68A /* Extension + UIFont.swift in Sources */,
 				8470445827678FE000F5C3AB /* CapsuleDetailsModel.swift in Sources */,
 				849BC3B6276384C20094A929 /* SceneDelegate.swift in Sources */,
 				8477B60E2766567D00B9100B /* LaunchesViewController.swift in Sources */,
