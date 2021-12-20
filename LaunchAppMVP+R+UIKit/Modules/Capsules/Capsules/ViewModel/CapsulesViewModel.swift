@@ -14,9 +14,4 @@ struct CapsulesViewModel {
     var capsules: [CapsuleCellViewModel] = []
 }
 
-struct CapsuleCellViewModel {
-    let id: UUID = UUID()
-    var statusButtonColor: UIColor
-    var capsuleName: String
-    var capsuleEmoji: String
-}
+

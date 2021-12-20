@@ -13,7 +13,4 @@ struct CapsuleDetailsViewModel {
     var capsuleValues: [CapsuleDetailsCellViewModel] = []
 }
 
-struct CapsuleDetailsCellViewModel {
-    var title: String = ""
-    var value: String = ""
-}
+
