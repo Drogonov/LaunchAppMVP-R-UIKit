@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 protocol RouterProtocol {
-    
     init(
         tabBarController: MainTabBarController,
         mainTabBarBuilder: MainTabBarBuilderProtocol
@@ -22,8 +21,6 @@ protocol RouterProtocol {
     func showLoader()
     func hideLoader()
 }
-
-import UIKit
 
 class Router {
     

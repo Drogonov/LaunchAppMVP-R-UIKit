@@ -8,13 +8,11 @@
 import Foundation
 import Moya
 
-// Протокол репозитория для взаимодействия с акциями
 protocol SpaceXDataServiceProtocol {
-    /// получение списка блока выгодно
     func getLaunchesList(
         completion: @escaping ((Result<[LaunchMo]?, HTMAPIError>) -> Void)
     )
-    /// получение списка блока акции
+    
     func getCapsulesList(
         completion: @escaping ((Result<[CapsuleMo]?, HTMAPIError>) -> Void)
     )
